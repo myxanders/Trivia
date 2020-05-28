@@ -1,0 +1,78 @@
+body, button, input {
+    font-family: 'Istok Web', sans-serif;
+}
+
+body {
+    background-image: linear-gradient(navy,royalblue);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    margin: 0;
+}
+
+h1 {
+    font-size: 100px;
+    color: gold;
+    display:flex;
+    justify-content: center;
+    margin-top: 75px;
+}
+
+h2 {
+    font-size: 48px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    font-size: 36px;
+    color: darkorange;
+    display: flex;
+    justify-content: center;
+    margin:-5px;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+    background-color: white;
+    color: black;
+    width: max-content;
+}
+
+table td, th {
+    border: 2px solid black;
+    padding: 5px;
+    font-size: 20px;
+}
+
+table th {
+    background-color: gold;
+}
+
+button {
+    background-color:white;
+    color:black;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: max-content;
+    min-height: 30px;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+button:hover{
+    background-color:black;
+    color:white;
+    border: 2px solid white;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
