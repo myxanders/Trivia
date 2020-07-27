@@ -4,6 +4,8 @@ session_start();
 $n = "<br>";
 $round_id = $_GET['id'];
 $_SESSION['id'] = $round_id;
+
+//Set appropriate wagers for the round.
 if($round_id <= 3){
     mysqli_query($conn, "UPDATE wagers SET low_wager = 2, med_wager = 4, high_wager = 6");
 }
@@ -22,6 +24,8 @@ elseif($round_id > 3 && $round_id <= 6){
     <link rel="icon" href="favicon2.ico">
 </head>
 <body>
+    <!-- At the beginning of each round players are shown the categories for the next 3 question so they may strategize how
+         they would like to use their wagers. -->
     <h1 style="margin-bottom:-10px;">Your Round <?php echo $round_id;?> Categories Are:</h1>
     <br>
     <?php

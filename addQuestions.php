@@ -1,6 +1,6 @@
 <?php
 include("variables.php");
-$n = "<br>";
+$n = "<br>"; //testing changes
 ?>
 
 <head>
@@ -12,6 +12,7 @@ $n = "<br>";
     <link rel="icon" href="favicon2.ico">
 </head>
 <script>
+// This function is necessary for adding new answers to the halftime question, which has at least four correct responses.
     function newAnswer() {
         var table = document.getElementById("half");
         var ans = table.rows[1].cells[0].innerHTML;
@@ -39,6 +40,7 @@ $n = "<br>";
                 <?php
                 $i = 1;
                 $k = 0;
+                //There are 18 standard questions, so there needs to be 18 entries for questions and answers.
                 while ($i <= 18) {
                     if ($i % 3 == 1) {
                         $k = $k + 1;
@@ -92,6 +94,8 @@ $n = "<br>";
             </div>
             <br>
             <div>
+            <!-- The final question requires putting values in order from least to greatest. The user must enter a 
+                 description and the value associated with it. -->
                 <h2>Final Question</h2>
             <table id="final">
                 <tr>

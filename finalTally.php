@@ -2,7 +2,8 @@
 include("variables.php");
 $n = "<br>";
 
-// var_dump($_POST)
+//If player got the final question right, add their wager. If they got it wrong, deduct it.
+
 $sql = mysqli_query($conn, "SELECT * FROM players");
 $i = 1;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -47,6 +48,8 @@ while ($j <= mysqli_num_rows($query) && $q = mysqli_fetch_array($query)) {
     $j++;
 }
 
+//A session id value of 7, i.e. round 7, indicates the game is through asking standard questions.
+//"Round 7" also affects presentation of the leaderboard.
 $_SESSION['id'] = 7;
 $next = "scores.php";
 
@@ -63,7 +66,7 @@ $next = "scores.php";
 
 <body>
     <div id="mainContent" align="center" style="margin-top:10%;">
-
+<!-- Splash screen to build the suspense of final scores. -->
         <h2 id="elipses">Tallying points.</h2>
         <p><span id="counter" style="display:none;">5</span></p>
         <script type="text/javascript">

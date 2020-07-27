@@ -2,6 +2,7 @@
 include("variables.php");
 $n = "<br>";
 
+//Final answers are processed as an associative array where the key is the description and the value is the number described.
 $final_answers = [];
 $queries = [];
 $category1 = NULL;
@@ -223,7 +224,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $answer18 = $_POST['answer18'];
     }
 
-
+//str_replace is used to filter out any questions or answers that contain an apostrophe, which would throw off queries
 
     $sql = ("INSERT INTO questions (`question_num`, `round`, `category`, `question`, `answer`) VALUES ");
     $i = 1;
@@ -279,7 +280,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ans = 'final_a' . $j;
         $val = 'final_v' . $j;
         if (isset($_POST[$ans])) {
-            ${'final_a' . $j} = $_POST[$ans];
+            $final_answer = str_replace("'","`",$_POST[$ans]);
+            ${'final_a' . $j} = $finalanswer;
         }
         if (isset($_POST[$val])) {
             ${'final_v' . $j} = $_POST[$val];
@@ -288,6 +290,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $final_answers[${'final_v' . $j}] = ${'final_a' . $j};
     }
 
+    //Finals answers are sorted by value and inserted into the db table in correct ascending order.
     ksort($final_answers);
     $m = 1;
     foreach ($final_answers as $x => $y) {

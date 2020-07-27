@@ -3,6 +3,7 @@ include("variables.php");
 $n = "<br>";
 
 
+//Collect the amount of correct answers provided by the players and multiply by 3 to get their score from the halftime question.
 $sql = mysqli_query($conn, "SELECT * FROM players");
 $i = 1;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -55,7 +56,7 @@ $next = "scores.php";
 
 <body>
     <div id="mainContent" align="center" style="margin-top:10%;">
-
+<!-- A splash screen to build suspense before revealing halftime scores. -->
         <h2 id="elipses">Calculating Scores.</h2>
         <p><span id="counter" style="display:none;">5</span></p>
         <script type="text/javascript">

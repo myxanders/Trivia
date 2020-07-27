@@ -2,6 +2,8 @@
 include("variables.php");
 $n = "<br>";
 
+//Populate necessary tables to start the game.
+
 $total_players = sizeof($_POST);
 $i=1;
 $sql = "INSERT INTO players (`player_name`) VALUES";

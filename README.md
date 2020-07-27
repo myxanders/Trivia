@@ -25,3 +25,5 @@ FINAL:
 Highest score at the end of the game wins.
 
 All of these elements are captured in this game.
+
+This has allowed us to play with friends and family from across the country twice a week.

@@ -4,6 +4,7 @@ session_start();
 $n = "<br>";
 $rd = $_SESSION['id'];
 
+// Displaying the leaderboard
 $sql = mysqli_query($conn, "SELECT * FROM players ORDER BY pts DESC");
 ?>
 <html>
@@ -17,6 +18,7 @@ $sql = mysqli_query($conn, "SELECT * FROM players ORDER BY pts DESC");
     <link rel="icon" href="favicon2.ico">
 </head>
 <?php
+// At the end of the game, the winners gets their name flashing in rainbow colors. Music is added for fun.
 	if ($rd == 7){
 		echo '<script>';
     echo'var colors = ["red", "orange","yellow", "green", "blue", "purple", "violet"];';
@@ -81,6 +83,7 @@ echo'</script>';
     </div>
     <br>
     <div>
+        <!-- For transparency's sake, a record of correct/incorrect answers and how many points were earned on each question. -->
         <table  id="breakdown">
             <tr>
                 <th class="boop"></th>
@@ -230,15 +233,4 @@ echo'</script>';
 		scrollbar-color: gold navy;
 	}
 
-    /* #breakdown::-webkit-scrollbar-track {
-        background-color: black;
-    } */
-
-    /* #breakdown::-webkit-scrollbar {
-        background-color: black;
-    }
-
-    #breakdown::-webkit-scrollbar-thumb {
-        background-color: black;
-    }       */
 </style>

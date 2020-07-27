@@ -1,6 +1,7 @@
 <?php
 include("variables.php");
 $n = "<br>";
+// Create a blank slate for a new game of trivia.
 mysqli_query($conn, "DELETE FROM halftime_answers");
 mysqli_query($conn, "DELETE FROM questions");
 mysqli_query($conn, "DELETE FROM scores");

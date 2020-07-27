@@ -2,20 +2,23 @@
 include("variables.php");
 session_start();
 $n = "<br>";
+//Question number of the question that was just answered.
 $question_num = $_GET['id'];
 
+// In the first half, players may use wagers of 2, 4, and 6 points.
 if ($question_num <= 9){
     $low = 2;
     $med = 4;
     $high = 6;
 }
+// In the second half, players may use wagers of 5, 7, and 9 points.
 elseif ($question_num > 9 && $question_num <= 18){
     $low = 5;
     $med = 7;
     $high = 9;
 }
 
-
+//Remove the wager from available wagers and add the players' wagers to their scores if they got it right.
 $sql = mysqli_query($conn, "SELECT * FROM players");
 $i = 1;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -68,20 +71,27 @@ while ($j <= mysqli_num_rows($query) && $q = mysqli_fetch_array($query)) {
     $j++;
 }
 
+//Which path are we going on next? If the next question is the first question of a new round, we need to check whether or not the 
+//next question is in a new half.
 $next_q = $question_num + 1;
 $next_r = $_SESSION['id'] + 1;
 if ($next_q % 3 == 1){
     if ($next_q == 10){
         $next = "halftime.php";
     }
+    //The values of 19 and 20 are reserved for the halftime and final questions for the sake of consolidation of tables.
+    //When the 18 standard questions have been asked we do a quick check-in on scores so players know what they can wager
+    //for the final question.
     elseif ($next_q == 19 || $next_q == 20){
         $next = "scores.php";
     }
     else{
+    //New round
         $next = "roundStart.php?id=" . $next_r;
     }
 }
 else {
+    //New question, same round
     $next = "question.php?id=" . $next_q;
 }
 
@@ -98,7 +108,7 @@ else {
 
 <body>
     <div id="mainContent" align="center" style="margin-top:10%;">
-
+<!-- Splash screen to prepare players for the next question. -->
         <h2 id="elipses">Next Question.</h2>
         <p><span id="counter" style="display:none;">5</span></p>
         <script type="text/javascript">

@@ -5,6 +5,7 @@ $n = "<br>";
 
 $round_id = $_SESSION['id'];
 
+//Halftime question was assigned the question_num of 19 as it is not one of the standard 18 questions.
 $sql = mysqli_query($conn, "SELECT * FROM questions WHERE question_num = 19");
 $r = mysqli_fetch_array($sql);
 $qst = $r['question'];
@@ -20,11 +21,13 @@ $qst = $r['question'];
     <link rel="icon" href="favicon2.ico">
 </head>
 <script>
+// Reveals all possible correct answers at once.
     function showAnswer() {
         document.getElementById("answer").style.display = "block";
     }
 </script>
 
+<!-- Mark how many correct answers players wrote down. -->
 <body>
     <div>
         <h1>Halftime Question:</h1>

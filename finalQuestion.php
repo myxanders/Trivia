@@ -41,6 +41,8 @@ $qst = $r['question'];
             }
         ?>
         </table>
+        <!-- When players have answers ready, we take down wagers so they cannot change their wager after seeing they were
+             right or wrong. -->
         <form action="finalAnswers.php" method="post">
             <br>
             <br>

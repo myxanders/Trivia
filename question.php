@@ -23,6 +23,7 @@ $category = $q['category'];
     <link rel="icon" href="favicon2.ico">
 </head>
 <script>
+// Display the answer once all wagers are set and answers are submitted.
     function showAnswer() {
         document.getElementById("answer").style.display = "block";
     }
@@ -34,6 +35,7 @@ $category = $q['category'];
     <h2 style="text-align: center; max-width: 800px;"><?php echo $qst;?></h2>
     <br>
     <form action = "answerQuestions.php?id=<?php echo $question_id;?>" method = "post">
+    <!-- Mark the wager used by each player. -->
     <table>
         <tr>
             <th style="width: 200px;">Player</th>
