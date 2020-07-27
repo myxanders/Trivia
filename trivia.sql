@@ -46,15 +46,17 @@ INSERT INTO `categories` (`category_id`, `category`) VALUES
 (4, 'Business'),
 (5, 'Geography'),
 (6, 'History'),
-(7, 'Literature'),
-(8, 'Math'),
-(9, 'Movies'),
-(10, 'Music'),
-(11, 'Politics'),
-(12, 'Science'),
-(13, 'Sports'),
-(14, 'The 90s'),
-(15, 'TV');
+(7, 'Language'),
+(8, 'Literature'),
+(9, 'Math'),
+(10, 'Movies'),
+(11, 'Music'),
+(12, 'Politics'),
+(13, 'Science'),
+(14, 'Sports'),
+(15, 'The 90s'),
+(16, 'Toys & Games'),
+(17, 'TV');
 
 -- --------------------------------------------------------
 
