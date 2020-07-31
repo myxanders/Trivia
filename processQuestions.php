@@ -281,7 +281,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $val = 'final_v' . $j;
         if (isset($_POST[$ans])) {
             $final_answer = str_replace("'","`",$_POST[$ans]);
-            ${'final_a' . $j} = $finalanswer;
+            echo $final_answer . $n;
+            ${'final_a' . $j} = $final_answer;
         }
         if (isset($_POST[$val])) {
             ${'final_v' . $j} = $_POST[$val];

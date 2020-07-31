@@ -2,6 +2,11 @@
 include("variables.php");
 session_start();
 $n = "<br>";
+$catResult = "";
+if(isset($_GET['cat'])){
+    $catResult = $_GET['cat'];
+}
+
 ?>
 <html>
 
@@ -37,6 +42,20 @@ $n = "<br>";
         <h2>You must add questions before you start Trivia.</h2>
         <div>
             <button style="font-size: 32px;" onclick="window.location.href='addQuestions.php'">Add Questions</button>
+            <form action="resetGame.php?req=category" method="post">
+                <br>
+                <?php
+                    if ($catResult == "success"){
+                        echo '<p align="center" style="color:yellow; font-weight:bold;">Category added successfully!</p>';
+                    }
+                    elseif($catResult == "failed"){
+                        echo '<p align="center" style="color: red;  font-weight:bold;">Category already exists.</p>';
+                    }
+                ?>
+                <label for="cat" style="color: white;">New Category: </label>
+                <input type="text" name="category" id="cat" style="border: 2px solid black; border-radius: 4px;">
+                <button type="submit">Add Category</button>
+            </form>
         </div>
     <?php
     } else {
@@ -66,9 +85,11 @@ $n = "<br>";
         $end = $q['done'];
         if ($end != NULL) {
         ?>
-            <div id="buttons">
-                <br>
-                <button align="center" onclick="window.location.href='resetGame.php'" id="reset">Reset Game</button>
+        <hr style="width: 50%;">
+        <h4 style="margin-bottom: -5px;">Start New Game?</h4>
+            <div id="buttons"">
+                <button align="center" onclick="window.location.href='resetGame.php?req=reset'" id="reset">Reset Game</button>
+                <button align="center" onclick="window.location.href='resetGame.php?req=newgame'" id="reset">New Game</button>
             </div>
     <?php
         }

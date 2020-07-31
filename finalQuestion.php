@@ -1,5 +1,6 @@
 <?php
 include("variables.php");
+include("scoreboard.php");
 session_start();
 $n = "<br>";
 $_SESSION['id'] = 7;

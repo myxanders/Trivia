@@ -1,5 +1,6 @@
 <?php
 include("variables.php");
+include("scoreboard.php");
 session_start();
 $n = "<br>";
 $round_id = $_GET['id'];
@@ -49,4 +50,5 @@ elseif($round_id > 3 && $round_id <= 6){
     <div>
         <button onclick="window.location.href='question.php?id=<?php echo $nxt;?>'">Start Round <?php echo $round_id;?></button>
     </div>
+    <br>
 </body>
