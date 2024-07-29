@@ -88,8 +88,8 @@ if(isset($_GET['cat'])){
         <hr style="width: 50%;">
         <h4 style="margin-bottom: -5px;">Start New Game?</h4>
             <div id="buttons"">
-                <button align="center" onclick="window.location.href='resetGame.php?req=reset'" id="reset">Reset Game</button>
-                <button align="center" onclick="window.location.href='resetGame.php?req=newgame'" id="reset">New Game</button>
+                <button align="center" onclick="window.location.href='resetGame.php?req=reset'" id="reset">New Questions</button>
+                <button align="center" onclick="window.location.href='resetGame.php?req=newgame'" id="reset">Same Questions</button>
             </div>
     <?php
         }
