@@ -15,8 +15,6 @@ if (isset($_POST['category'])){
     while ($i <= mysqli_num_rows($sql) && $r = mysqli_fetch_array($sql)){
         $cat = $r['category'];
         if ($category == $cat || strtoupper($category) == $cat){
-            // echo '<body style="background-image: linear-gradient(navy,royalblue); background-repeat: no-repeat; background-attachment: fixed; height: 100%; margin: 0;"><h2 align="center" style="color: white; margin-top:100px; font-size: 48px; font-family: Istok Web, sans-serif">Category already exists.</h2></body>';
-            // header('Refresh:2 ; URL=index.php');
             $unique = false;
             header("location:index.php?cat=failed");
         }
